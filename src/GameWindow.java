@@ -38,6 +38,6 @@ public class GameWindow extends JFrame {
         setVisible(true);
     }
     public void startNewGame(int mode, int fieldSize, int winningLenght){
-        System.out.printf('mode %d , fieldSize %d , winningLenght %d ', mode, fieldSize, winningLenght);
+        battleField.startNewGame(mode, fieldSize, winningLenght);
     }
 }

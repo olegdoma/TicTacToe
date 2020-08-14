@@ -9,6 +9,9 @@ public class SettingWindow extends JFrame {
     private final int WINDOW_HEIGHT = GameWindow.WINDOW_HEIGHT - 100;
     private final int WINDOW_WIDTH = GameWindow.WINDOW_WIDTH - 100;
 
+    static final int GAME_MODE_H_VS_A = 0;
+    static final int GAME_MODE_H_VS_H = 1;
+
     private static final int MIN_FIELD_SIZE = 3;
     private static final int MAX_FIELD_SIZE = 10;
 
@@ -58,6 +61,17 @@ public class SettingWindow extends JFrame {
         JButton buttonStartGame = new JButton("Начать новую игру");
         add(buttonStartGame);
         buttonStartGame.addActionListener(e -> {
+            int mode;
+            if (jRbHumanvsAi.isSelected()){
+                mode = GAME_MODE_H_VS_A;
+            } else {
+                mode = GAME_MODE_H_VS_H;
+            }
+            int fieldSize = jsFieldSize.getValue();
+            int winningLenght = jsWinningLenght.getValue();
+
+            gameWindow.startNewGame(mode, fieldSize, winningLenght);
+
             setVisible(false);
         });
 
